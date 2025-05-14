@@ -6,7 +6,7 @@ music.setBuiltInSpeakerEnabled(true)
 music.setVolume(255)
 music.setTempo(120)
 led.plot(0, 2)
-music.play(music.stringPlayable("E G A C5 - - - - ", 500), music.PlaybackMode.UntilDone)
+music.play(music.stringPlayable("A C5", 500), music.PlaybackMode.UntilDone)
 let Kick = music.createSoundExpression(WaveShape.Square, 523, 1, 255, 0, 100, SoundExpressionEffect.Tremolo, InterpolationCurve.Logarithmic)
 let Snare = music.createSoundExpression(WaveShape.Square, 400, 100, 255, 255, 100, SoundExpressionEffect.None, InterpolationCurve.Curve)
 let Hihat = music.createSoundExpression(WaveShape.Noise, 3189, 3154, 255, 76, 30, SoundExpressionEffect.None, InterpolationCurve.Linear)
@@ -45,8 +45,6 @@ radio.onReceivedNumber(function on_received_number(receivedNumber: number) {
                     soundToPlay = Snare
                 } else if (sound == "t") {
                     soundToPlay = Hihat
-                } else {
-                    basic.pause(10)
                 }
                 
                 music.play(soundToPlay, music.PlaybackMode.InBackground)

@@ -6,7 +6,7 @@ music.set_built_in_speaker_enabled(True)
 music.set_volume(255)
 music.set_tempo(120)
 led.plot(0, 2)
-music.play(music.string_playable("E G A C5 - - - - ", 500),
+music.play(music.string_playable("A C5", 500),
     music.PlaybackMode.UNTIL_DONE)
 
 Kick = music.create_sound_expression(WaveShape.SQUARE,
@@ -78,8 +78,6 @@ def on_received_number(receivedNumber):
                     soundToPlay = Snare
                 elif sound == "t":
                     soundToPlay = Hihat
-                else:
-                    basic.pause(10)
                 music.play(soundToPlay, music.PlaybackMode.IN_BACKGROUND)
             music.rest(music.beat(BeatFraction.WHOLE) + 2)
 radio.on_received_number(on_received_number)
